@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'features/presentation/screens/dashboard/dashboard_screen.dart';
+import 'features/presentation/screens/dashboard/admin/a_dashboard_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const DashboardScreen(),
+      home: const AdminDashboardScreen(),
     );
   }
 }
