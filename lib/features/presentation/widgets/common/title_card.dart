@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:office_app/core/constants/app_config.dart';
+
+import '../../../../core/themes/color_theme.dart';
 
 class TitleCard extends StatelessWidget {
   final String title;
@@ -7,6 +8,8 @@ class TitleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).extension<AppColorTheme>()!;
+
     return Column(
       children: [
         SizedBox(height: 10),
@@ -22,7 +25,7 @@ class TitleCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
-                color: AppContansts.primaryColor,
+                color: colors.primary,
               ),
             ),
           ],

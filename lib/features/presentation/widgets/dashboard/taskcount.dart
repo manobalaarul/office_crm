@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/app_config.dart';
+import '../../../../core/themes/color_theme.dart';
 
 class Taskcount extends StatelessWidget {
   const Taskcount({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).extension<AppColorTheme>()!;
+
     return Row(
       children: [
         Expanded(
@@ -16,7 +18,7 @@ class Taskcount extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Row(
                 children: [
-                  Icon(Icons.work, size: 40, color: AppContansts.primaryColor),
+                  Icon(Icons.work, size: 40, color: colors.primary),
                   const SizedBox(width: 16),
                   const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,7 +51,7 @@ class Taskcount extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Row(
                 children: [
-                  Icon(Icons.chat, size: 40, color: AppContansts.primaryColor),
+                  Icon(Icons.chat, size: 40, color: colors.primary),
                   SizedBox(width: 16),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

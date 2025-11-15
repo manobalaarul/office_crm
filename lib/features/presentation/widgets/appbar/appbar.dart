@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/app_config.dart';
+import '../../../../core/themes/color_theme.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -9,22 +9,18 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).extension<AppColorTheme>()!;
+
     return AppBar(
-      backgroundColor: AppContansts.primaryColor,
-      leading: Container(
-        margin: const EdgeInsets.all(5),
-        decoration: BoxDecoration(
-          color: Colors.grey.withValues(alpha: 0.2),
-          borderRadius: BorderRadius.circular(8.0),
-        ),
-        child: IconButton(
-          color: Colors.grey,
-          icon: const Icon(Icons.menu, color: Colors.white),
-          onPressed: () {
-            // Handle menu action
-          },
-        ),
+      backgroundColor: colors.primary,
+      leading: IconButton(
+        color: Colors.grey,
+        icon: const Icon(Icons.menu, color: Colors.white),
+        onPressed: () {
+          // Handle menu action
+        },
       ),
+
       // centerTitle: true,
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,33 +37,16 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         ],
       ), // optional
       actions: [
-        Container(
-          margin: const EdgeInsets.all(5),
-          decoration: BoxDecoration(
-            color: Colors.grey.withValues(alpha: 0.2),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          child: IconButton(
-            color: Colors.grey,
-            icon: const Icon(Icons.person, color: Colors.white),
-            onPressed: () {
-              // Handle menu action
-            },
-          ),
+        IconButton(
+          color: Colors.grey,
+          icon: const Icon(Icons.person, color: Colors.white),
+          onPressed: () {},
         ),
-        Container(
-          margin: const EdgeInsets.all(5),
-          decoration: BoxDecoration(
-            color: Colors.grey.withValues(alpha: 0.2),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          child: IconButton(
-            color: Colors.grey,
-            icon: const Icon(Icons.settings, color: Colors.white),
-            onPressed: () {
-              // Handle menu action
-            },
-          ),
+
+        IconButton(
+          color: Colors.grey,
+          icon: const Icon(Icons.settings, color: Colors.white),
+          onPressed: () {},
         ),
       ],
     );
