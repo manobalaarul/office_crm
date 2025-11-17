@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:office_app/features/presentation/widgets/appbar/appbar.dart';
 import 'package:office_app/features/presentation/widgets/common/title_card.dart';
+import 'package:office_app/features/presentation/widgets/dashboard/dashboard_shortcuts.dart';
 import 'package:office_app/features/presentation/widgets/dashboard/taskcount.dart';
 
 class AdminDashboardScreen extends StatefulWidget {
@@ -20,7 +21,8 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
         child: Column(
           children: [
             Taskcount(),
-            TitleCard(title: 'Recent Activities'),
+            TitleCard(title: 'Shortcuts'),
+            DashboardShortcuts(),
           ],
         ),
       ),

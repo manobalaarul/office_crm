@@ -13,6 +13,9 @@ class Taskcount extends StatelessWidget {
       children: [
         Expanded(
           child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
             elevation: 1,
             child: Padding(
               padding: const EdgeInsets.all(16.0),
