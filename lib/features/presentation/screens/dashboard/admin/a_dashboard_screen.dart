@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:office_app/features/presentation/widgets/appbar/appbar.dart';
 import 'package:office_app/features/presentation/widgets/common/title_card.dart';
 import 'package:office_app/features/presentation/widgets/dashboard/dashboard_shortcuts.dart';
+import 'package:office_app/features/presentation/widgets/dashboard/quick_shortcuts.dart';
 import 'package:office_app/features/presentation/widgets/dashboard/taskcount.dart';
+
+import '../../../widgets/dashboard/recent_activity.dart';
 
 class AdminDashboardScreen extends StatefulWidget {
   const AdminDashboardScreen({super.key});
@@ -23,6 +26,10 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
             Taskcount(),
             TitleCard(title: 'Shortcuts'),
             DashboardShortcuts(),
+            TitleCard(title: 'Shortcuts'),
+            QuickShortcuts(),
+            TitleCard(title: 'Recent Acitivities'),
+            RecentActivity(),
           ],
         ),
       ),

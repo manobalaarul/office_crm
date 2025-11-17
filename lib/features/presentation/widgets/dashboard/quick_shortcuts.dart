@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../common/shortcut_card.dart';
 
-class DashboardShortcuts extends StatelessWidget {
-  const DashboardShortcuts({super.key});
+class QuickShortcuts extends StatelessWidget {
+  const QuickShortcuts({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,34 +12,28 @@ class DashboardShortcuts extends StatelessWidget {
       child: Row(
         children: const [
           ShortcutCard(
-            title: 'Projects',
-            icon: Icons.cases,
+            title: 'Add Clients',
+            icon: Icons.person_add,
             fontSize: 15.0,
-            width: 0.25,
+            width: 0.3,
           ),
           ShortcutCard(
-            title: 'Task',
+            title: 'Create Task',
             icon: Icons.task,
             fontSize: 15.0,
-            width: 0.25,
+            width: 0.3,
           ),
           ShortcutCard(
-            title: 'Reports',
-            icon: Icons.report,
+            title: 'Create Bill',
+            icon: Icons.inventory_outlined,
             fontSize: 15.0,
-            width: 0.25,
+            width: 0.3,
           ),
           ShortcutCard(
-            title: 'Clients',
-            icon: Icons.person,
+            title: 'Add Bill',
+            icon: Icons.receipt,
             fontSize: 15.0,
-            width: 0.25,
-          ),
-          ShortcutCard(
-            title: 'Meeting',
-            icon: Icons.video_call,
-            fontSize: 15.0,
-            width: 0.25,
+            width: 0.3,
           ),
         ],
       ),
