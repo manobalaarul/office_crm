@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../../core/themes/color_theme.dart';
+import '../chat/chat_list.dart';
 import '../dashboard/admin/a_dashboard_screen.dart';
 
 class MainTab extends StatefulWidget {
@@ -17,7 +18,7 @@ class _MainTabState extends State<MainTab> {
 
   final List<Widget> _pages = [
     const AdminDashboardScreen(),
-    const AdminDashboardScreen(),
+    const ChatList(),
     const AdminDashboardScreen(),
     const AdminDashboardScreen(),
   ];

@@ -7,6 +7,7 @@ ThemeData darkTheme = ThemeData(
   extensions: [
     AppColorTheme(
       primary: const Color(0xFF80B500),
+      primaryShade: const Color(0xFFA6C072),
       primaryText: Colors.white,
       secondaryText: const Color(0xff7C7D7E),
       textfield: const Color(0xffD5D5D5),

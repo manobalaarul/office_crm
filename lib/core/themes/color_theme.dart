@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColorTheme extends ThemeExtension<AppColorTheme> {
   final Color primary;
+  final Color primaryShade;
   final Color primaryText;
   final Color secondaryText;
   final Color textfield;
@@ -10,6 +11,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
 
   AppColorTheme({
     required this.primary,
+    required this.primaryShade,
     required this.primaryText,
     required this.secondaryText,
     required this.textfield,
@@ -20,6 +22,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
   @override
   AppColorTheme copyWith({
     Color? primary,
+    Color? primaryShade,
     Color? primaryText,
     Color? secondaryText,
     Color? textfield,
@@ -28,6 +31,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
   }) {
     return AppColorTheme(
       primary: primary ?? this.primary,
+      primaryShade: primaryShade ?? this.primaryShade,
       primaryText: primaryText ?? this.primaryText,
       secondaryText: secondaryText ?? this.secondaryText,
       textfield: textfield ?? this.textfield,
@@ -42,6 +46,7 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
 
     return AppColorTheme(
       primary: Color.lerp(primary, other.primary, t)!,
+      primaryShade: Color.lerp(primaryShade, other.primaryShade, t)!,
       primaryText: Color.lerp(primaryText, other.primaryText, t)!,
       secondaryText: Color.lerp(secondaryText, other.secondaryText, t)!,
       textfield: Color.lerp(textfield, other.textfield, t)!,

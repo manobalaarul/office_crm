@@ -7,7 +7,13 @@ import '../../../../core/themes/color_theme.dart';
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final String role;
-  const MyAppBar({super.key, required this.title, required this.role});
+  final bool showRole;
+  const MyAppBar({
+    super.key,
+    required this.title,
+    required this.role,
+    this.showRole = true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +23,9 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: colors.background,
       leading: IconButton(
         color: Colors.grey,
-        icon: Icon(Icons.menu, color: colors.primary,),
+        icon: Icon(Icons.menu, color: colors.primary),
         onPressed: () {
-          // Handle menu action
+          Scaffold.of(context).openDrawer();
         },
       ),
 
@@ -35,7 +41,12 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               fontSize: 22,
             ),
           ),
-          Text(role, style: TextStyle(color: colors.primary, fontSize: 15)),
+          showRole
+              ? Text(
+                  role,
+                  style: TextStyle(color: colors.primary, fontSize: 15),
+                )
+              : SizedBox.shrink(),
         ],
       ), // optional
       actions: [

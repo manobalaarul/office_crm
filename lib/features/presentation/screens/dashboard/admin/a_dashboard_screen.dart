@@ -7,6 +7,7 @@ import 'package:office_app/features/presentation/widgets/dashboard/quick_shortcu
 import 'package:office_app/features/presentation/widgets/dashboard/taskcount.dart';
 
 import '../../../widgets/dashboard/recent_activity.dart';
+import '../../../widgets/drawer/my_drawer.dart';
 
 class AdminDashboardScreen extends StatefulWidget {
   const AdminDashboardScreen({super.key});
@@ -20,6 +21,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(title: 'Welcome, Mano', role: 'Admin'),
+      drawer: const MyDrawer(userName: 'Mano', userEmail: 'mano@example.com'),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(8.0),
