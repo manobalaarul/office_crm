@@ -23,7 +23,7 @@ class TitleCard extends StatelessWidget {
             Text(
               'See More',
               style: TextStyle(
-                fontSize: 15,
+                fontSize: 12,
                 fontWeight: FontWeight.bold,
                 color: colors.primary,
               ),

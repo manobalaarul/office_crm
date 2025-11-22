@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/themes/bloc/theme_bloc.dart';
 import '../../../../core/themes/color_theme.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -12,10 +14,10 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     final colors = Theme.of(context).extension<AppColorTheme>()!;
 
     return AppBar(
-      backgroundColor: colors.primary,
+      backgroundColor: colors.background,
       leading: IconButton(
         color: Colors.grey,
-        icon: const Icon(Icons.menu, color: Colors.white),
+        icon: Icon(Icons.menu, color: colors.primary,),
         onPressed: () {
           // Handle menu action
         },
@@ -28,24 +30,38 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           Text(
             title,
             style: TextStyle(
-              color: Colors.white,
+              color: colors.primary,
               fontWeight: FontWeight.bold,
               fontSize: 22,
             ),
           ),
-          Text(role, style: TextStyle(color: Colors.white, fontSize: 15)),
+          Text(role, style: TextStyle(color: colors.primary, fontSize: 15)),
         ],
       ), // optional
       actions: [
+        BlocBuilder<ThemeBloc, ThemeState>(
+          builder: (context, state) {
+            return IconButton(
+              icon: Icon(
+                state.isDark ? Icons.light_mode : Icons.dark_mode,
+                color: colors.primary,
+              ),
+              onPressed: () {
+                context.read<ThemeBloc>().add(ToggleTheme());
+              },
+            );
+          },
+        ),
+
         IconButton(
           color: Colors.grey,
-          icon: const Icon(Icons.person, color: Colors.white),
+          icon: Icon(Icons.person, color: colors.primary),
           onPressed: () {},
         ),
 
         IconButton(
           color: Colors.grey,
-          icon: const Icon(Icons.settings, color: Colors.white),
+          icon: Icon(Icons.settings, color: colors.primary),
           onPressed: () {},
         ),
       ],

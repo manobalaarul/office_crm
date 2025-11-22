@@ -13,14 +13,14 @@ class ActivityTab extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
-              width: mediaQuery.width * 0.7,
+              width: mediaQuery.width * 0.8,
               child: Text(
                 'Recent Activities will be displayed here. This is a placeholder text for recent activities.',
                 style: TextStyle(fontSize: 15),
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            Icon(Icons.access_time),
+            Icon(Icons.arrow_forward_ios_outlined, size: 16),
           ],
         ),
       ),
