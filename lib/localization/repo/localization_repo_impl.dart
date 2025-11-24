@@ -1,22 +1,21 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../../core/network/dio_client.dart';
 import 'localization_repo.dart';
 
-enum LocalizationMode {
-  assets, // Load from project assets folder
-  server, // Load from backend API
-}
+enum LocalizationMode { assets, server }
 
 class LocalizationRepoImpl implements LocalizationRepo {
   final DioClient dioClient;
   final LocalizationMode mode;
 
   LocalizationRepoImpl({required this.dioClient, required this.mode});
+
   Future<String> _localPath() async {
     final dir = await getApplicationDocumentsDirectory();
     return dir.path;
@@ -34,7 +33,6 @@ class LocalizationRepoImpl implements LocalizationRepo {
     if (mode == LocalizationMode.server) {
       try {
         final response = await dioClient.get(path: "/lang/$langCode.json");
-
         if (response.statusCode == 200) {
           content = jsonEncode(response.data);
         } else {
@@ -44,21 +42,31 @@ class LocalizationRepoImpl implements LocalizationRepo {
         throw Exception("Failed to fetch from server: $e");
       }
     } else {
-      try {
-        content = await rootBundle.loadString("assets/lang/$langCode.json");
-      } catch (e) {
-        throw Exception("Failed to load from assets: $e");
-      }
+      content = await rootBundle.loadString("assets/lang/$langCode.json");
     }
 
+    if (kIsWeb) {
+      return;
+    }
     final file = await _localFile(langCode);
     await file.writeAsString(content);
   }
 
   @override
   Future<Map<String, dynamic>> readLang(String langCode) async {
+    if (kIsWeb) {
+      final content = await rootBundle.loadString("assets/lang/$langCode.json");
+      return jsonDecode(content);
+    }
+
     final file = await _localFile(langCode);
-    final content = await file.readAsString();
+
+    if (await file.exists()) {
+      final content = await file.readAsString();
+      return jsonDecode(content);
+    }
+
+    final content = await rootBundle.loadString("assets/lang/$langCode.json");
     return jsonDecode(content);
   }
 }
