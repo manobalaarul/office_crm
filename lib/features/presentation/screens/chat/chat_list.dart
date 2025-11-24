@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:office_app/features/presentation/widgets/appbar/appbar.dart';
+import 'package:office_app/features/presentation/screens/common/crm_scaffold.dart';
 
 import '../../../../core/themes/color_theme.dart';
 
@@ -102,18 +102,16 @@ class _ChatListState extends State<ChatList> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: MyAppBar(title: 'Messages', role: 'Admin', showRole: false),
+    return CrmScaffold(
+      title: 'Messages',
+      role: 'Client',
+      showRole: false,
       body: ListView.builder(
         itemCount: chats.length,
         itemBuilder: (context, index) {
           final chat = chats[index];
           return _buildChatItem(chat);
         },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.message),
       ),
     );
   }

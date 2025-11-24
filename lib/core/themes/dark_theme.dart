@@ -4,6 +4,7 @@ import 'color_theme.dart';
 
 ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
+  fontFamily: "JosefinSans",
   extensions: [
     AppColorTheme(
       primary: const Color(0xFF80B500),

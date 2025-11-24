@@ -6,12 +6,12 @@ import '../../../../core/themes/color_theme.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-  final String role;
-  final bool showRole;
+  final String? role;
+  final bool? showRole;
   const MyAppBar({
     super.key,
     required this.title,
-    required this.role,
+    this.role = 'Client',
     this.showRole = true,
   });
 
@@ -41,9 +41,9 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               fontSize: 22,
             ),
           ),
-          showRole
+          showRole!
               ? Text(
-                  role,
+                  role!,
                   style: TextStyle(color: colors.primary, fontSize: 15),
                 )
               : SizedBox.shrink(),

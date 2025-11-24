@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../screens/clients/add_client_page.dart';
 import '../common/shortcut_card.dart';
 
 class QuickShortcuts extends StatelessWidget {
@@ -10,30 +12,36 @@ class QuickShortcuts extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-        children: const [
+        children: [
           ShortcutCard(
-            title: 'Add Clients',
+            title: 'add_client',
             icon: Icons.person_add,
             fontSize: 13.0,
             width: 0.25,
+            onTap: () {
+              Get.to(AddClientPage());
+            },
           ),
           ShortcutCard(
             title: 'Add Task',
             icon: Icons.task,
             fontSize: 13.0,
             width: 0.25,
+            onTap: () {},
           ),
           ShortcutCard(
             title: 'Create Bill',
             icon: Icons.inventory_outlined,
             fontSize: 13.0,
             width: 0.25,
+            onTap: () {},
           ),
           ShortcutCard(
             title: 'Add Bill',
             icon: Icons.receipt,
             fontSize: 13.0,
             width: 0.25,
+            onTap: () {},
           ),
         ],
       ),

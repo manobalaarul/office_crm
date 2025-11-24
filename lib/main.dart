@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 import 'package:office_app/core/constants/app_config.dart';
 import 'package:office_app/features/presentation/screens/maintab/main_tab.dart';
 
@@ -7,8 +8,17 @@ import 'app_bloc_provider.dart';
 import 'core/themes/bloc/theme_bloc.dart';
 import 'core/themes/dark_theme.dart';
 import 'core/themes/light_theme.dart';
+import 'di/di_module.dart';
+import 'localization/repo/localization_repo.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await DiModule().init();
+  final localizationRepo = sl<LocalizationRepo>();
+
+  // Fetch latest from server before app starts
+  await localizationRepo.fetchAndSaveLang("en");
+  await localizationRepo.fetchAndSaveLang("ta");
   runApp(const MyApp());
 }
 
@@ -20,7 +30,7 @@ class MyApp extends StatelessWidget {
       providers: AppBlocProvider.providers,
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (context, state) {
-          return MaterialApp(
+          return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             title: AppContansts.appName,
             theme: lightTheme,

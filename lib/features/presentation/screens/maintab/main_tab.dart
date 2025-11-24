@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 
 import '../../../../core/themes/color_theme.dart';
 import '../chat/chat_list.dart';
-import '../dashboard/admin/a_dashboard_screen.dart';
+import '../dashboard/a_dashboard_screen.dart';
 
 class MainTab extends StatefulWidget {
   const MainTab({super.key});
