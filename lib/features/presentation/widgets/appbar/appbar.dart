@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/themes/bloc/theme_bloc.dart';
 import '../../../../core/themes/color_theme.dart';
+import '../../../../localization/localization_bloc.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -63,11 +64,27 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             );
           },
         ),
+        BlocBuilder<LocalizationBloc, LocalizationState>(
+          builder: (context, state) {
+            final lang = state.langCode; // "en" or "ta"
 
-        IconButton(
-          color: Colors.grey,
-          icon: Icon(Icons.person, color: colors.primary),
-          onPressed: () {},
+            final buttonLabel = lang == "ta" ? "த" : "E";
+
+            return IconButton(
+              onPressed: () {
+                final newLang = lang == "en" ? "ta" : "en";
+                context.read<LocalizationBloc>().add(LoadLocalization(newLang));
+              },
+              icon: Text(
+                buttonLabel,
+                style: TextStyle(
+                  fontSize: lang == "en" ? 20 : 18,
+                  color: colors.primary,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            );
+          },
         ),
 
         IconButton(

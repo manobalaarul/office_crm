@@ -1,0 +1,43 @@
+{
+  "app_title": "Office CRM",
+  "login": "Login",
+  "logout": "Logout",
+  "email": "Email",
+  "password": "Password",
+  "forgot_password": "Forgot Password?",
+  "reset_password": "Reset Password",
+  "submit": "Submit",
+  "cancel": "Cancel",
+  "update": "Update",
+  "delete": "Delete",
+  "save": "Save",
+  "yes": "Yes",
+  "no": "No",
+
+  "dashboard": "Dashboard",
+  "clients": "Clients",
+  "add_client": "Add Client",
+  "edit_client": "Edit Client",
+  "client_details": "Client Details",
+
+  "tickets": "Tickets",
+  "create_ticket": "Create Ticket",
+  "ticket_details": "Ticket Details",
+  "messages": "Messages",
+  "type_message": "Type your message",
+
+  "settings": "Settings",
+  "change_language": "Change Language",
+  "language_english": "English",
+  "language_tamil": "Tamil",
+
+  "loading": "Loading...",
+  "something_went_wrong": "Something went wrong",
+  "no_data": "No data available",
+
+  "profile": "Profile",
+  "edit_profile": "Edit Profile",
+  "name": "Name",
+  "phone": "Phone Number",
+  "address": "Address"
+}

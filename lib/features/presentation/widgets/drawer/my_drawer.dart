@@ -1,9 +1,7 @@
 // crm_drawer.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/themes/color_theme.dart';
-import '../../../../localization/localization_bloc.dart';
 
 class MyDrawer extends StatelessWidget {
   final String userName;
@@ -119,24 +117,6 @@ class MyDrawer extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          Row(
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  context.read<LocalizationBloc>().add(LoadLocalization("en"));
-                },
-                child: const Text("English"),
-              ),
-              SizedBox(width: 16),
-              ElevatedButton(
-                onPressed: () {
-                  context.read<LocalizationBloc>().add(LoadLocalization("ta"));
-                },
-                child: const Text("தமிழ்"),
-              ),
-            ],
-          ),
-
           _buildDrawerItem(
             icon: Icons.help_outline,
             title: 'Help & Support',

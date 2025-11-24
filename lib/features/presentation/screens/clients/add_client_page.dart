@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:office_app/localization/widget/text_widget.dart';
 
 import '../../widgets/buttons/submit_btn.dart';
 import '../../widgets/textfields/my_textfield.dart';
@@ -20,6 +21,7 @@ class _AddClientPageState extends State<AddClientPage> {
 
   @override
   Widget build(BuildContext context) {
+    var media = MediaQuery.of(context).size;
     return CrmScaffold(
       title: 'Add Client',
       role: 'Admin',
@@ -29,7 +31,13 @@ class _AddClientPageState extends State<AddClientPage> {
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Text(
+                t(context, 'add_client'),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: media.height / 50),
               MyTextfield(label: "First Name", controller: fNameCtrl),
               MyTextfield(label: "Last Name", controller: lNameCtrl),
               MyTextfield(

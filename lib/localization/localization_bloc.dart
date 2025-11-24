@@ -11,19 +11,19 @@ class LocalizationBloc extends Bloc<LocalizationEvent, LocalizationState> {
 
   LocalizationBloc()
     : repo = sl<LocalizationRepo>(),
-      super(LocalizationState(strings: {})) {
+      super(LocalizationState(strings: {}, langCode: "en")) {
     on<LoadLocalization>(_onLoadLocalization);
     on<UpdateFromServer>(_onUpdateFromServer);
   }
 
   Future<void> _onLoadLocalization(LoadLocalization event, Emitter emit) async {
     final data = await repo.readLang(event.langCode);
-    emit(LocalizationState(strings: data));
+    emit(LocalizationState(strings: data, langCode: event.langCode));
   }
 
   Future<void> _onUpdateFromServer(UpdateFromServer event, Emitter emit) async {
     await repo.fetchAndSaveLang(event.langCode);
     final data = await repo.readLang(event.langCode);
-    emit(LocalizationState(strings: data));
+    emit(LocalizationState(strings: data, langCode: event.langCode));
   }
 }
